@@ -61,7 +61,7 @@ public class InsulatedWireBridgeHighWattageConfig : IBuildingConfig
         GeneratedBuildings.MakeBuildingAlwaysOperational(go);
         SimCellOccupier simCellOccupier = go.AddOrGet<SimCellOccupier>();
         simCellOccupier.doReplaceElement = true;
-        simCellOccupier.movementSpeedMultiplier = DUPLICANTSTATS.MOVEMENT.PENALTY_3;
+        simCellOccupier.movementSpeedMultiplier = DUPLICANTSTATS.MOVEMENT_MODIFIERS.PENALTY_3;
         go.AddOrGet<BuildingHP>().destroyOnDamaged = true;
         go.AddOrGet<Insulator>();
         go.AddOrGet<TileTemperature>();
