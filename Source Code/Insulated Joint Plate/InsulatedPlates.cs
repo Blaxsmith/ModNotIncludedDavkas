@@ -83,23 +83,12 @@ namespace InsulatedPlatesMod
             }
         }
 
-        public static void bridgeTechTree(string door, string group)
+        public static void bridgeTechTree(string id, string researchGroup)
         {
-            if (group == "none") return;
-#if VANILLA
-            Techs.TECH_GROUPING[group] = new List<string>((IEnumerable<string>)Techs.TECH_GROUPING[group])
-            {
-                door
-            }.ToArray();
-#endif
-
-#if SPACED_OUT
-            var tech = Db.Get().Techs.TryGet(group);
-		    if (tech != null)
-		    {
-			    tech.unlockedItemIDs.Add(door);
-		    }
-#endif
+            if (researchGroup == "none") return;
+            
+            Tech tech = Db.Get().Techs.TryGet(researchGroup);
+            tech?.AddUnlockedItemIDs(id);
         }
     }
 
